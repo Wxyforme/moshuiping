@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eef1f4">
+<title>墨水瓶 — 优化流程、降低成本并激发创造力的智能层</title>
+<meta name="description" content="墨水瓶是一层智能：把重复的流程交给系统，把判断留给人，把时间还给创造。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='9'%20fill='%230d1014'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6.6'%20fill='none'%20stroke='%23fff'%20stroke-width='1.7'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='2.1'%20fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preload" href="inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="boot" id="boot" aria-hidden="true"><span></span></div>
+
+<!-- ============================== fixed stage ============================== -->
+<div class="stage" id="stage">
+
+  <!-- living wallpaper : the thing the glass refracts -->
+  <div class="bg" id="bg">
+    <div class="blob" data-b="0"></div>
+    <div class="blob" data-b="1"></div>
+    <div class="blob" data-b="2"></div>
+    <div class="blob" data-b="3"></div>
+    <div class="blob" data-b="4"></div>
+    <div class="blob" data-b="5"></div>
+    <div class="veil" id="veil"></div>
+  </div>
+
+  <!-- ---------------------------- inset glass panel --------------------------- -->
+  <section class="panel" id="panel" aria-label="叙事面板">
+    <div class="p-tint" id="pTint"></div>
+    <div class="p-hue" id="pHue"></div>
+    <div class="p-glow" id="pGlow"></div>
+    <div class="p-spec" id="pSpec"></div>
+    <div class="p-rim" aria-hidden="true"></div>
+
+    <div class="p-inner" id="pInner">
+
+      <!-- shot 8 : statement + segmented ring -->
+      <div class="core" id="core">
+        <svg class="ring" id="ring" viewBox="0 0 400 400" aria-hidden="true">
+          <defs>
+            <filter id="ringGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g id="ringArcs"></g>
+          <circle id="ringDot" cx="200" cy="200" r="6.5" opacity="0"></circle>
+          <circle id="ringDotHalo" cx="200" cy="200" r="16" opacity="0"></circle>
+        </svg>
+        <div class="core-lines" id="coreLines">
+          <span data-k="0">把重复交给系统</span>
+          <span data-k="1">把判断留给人</span>
+          <span data-k="2">把时间还给创造</span>
+        </div>
+        <div class="core-labels" id="coreLabels"></div>
+      </div>
+
+      <!-- shot 9 : floating portraits -->
+      <div class="crowd" id="crowd"></div>
+      <p class="crowd-line" id="crowdLine">一支刻意保持小规模的团队</p>
+      <div class="crowd-name glass-thin" id="crowdName"><b></b><i></i></div>
+      <div class="orb glass" id="orb" aria-hidden="true">
+        <div class="orb-rings">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="2.6" class="fill"/></svg>
+        </div>
+      </div>
+
+      <!-- shot 10 : vertical list + app bubbles -->
+      <div class="list" id="list">
+        <div class="list-rail" aria-hidden="true"><i id="railFill"></i></div>
+        <article class="item" data-i="0">
+          <span class="itag"><b>01</b> 流程</span>
+          <h3>流程自动化</h3>
+          <p>把跨系统的搬运、比对和录入交给智能体，人只处理真正需要判断的那一步。</p>
+        </article>
+        <article class="item" data-i="1">
+          <span class="itag"><b>02</b> 知识</span>
+          <h3>知识检索</h3>
+          <p>散在文档、群聊和邮件里的答案，一句话问清，并且带出处。</p>
+        </article>
+        <article class="item" data-i="2">
+          <span class="itag"><b>03</b> 生成</span>
+          <h3>内容生成</h3>
+          <p>从一份简报直接长出可用的初稿，风格统一，随时可改。</p>
+        </article>
+        <article class="item" data-i="3">
+          <span class="itag"><b>04</b> 洞察</span>
+          <h3>数据洞察</h3>
+          <p>把埋点、表格和客户反馈汇成一句结论，不用等周报。</p>
+        </article>
+        <article class="item" data-i="4">
+          <span class="itag"><b>05</b> 部署</span>
+          <h3>私有化部署</h3>
+          <p>数据不出内网，权限跟着组织架构走，每一步操作都可追溯。</p>
+        </article>
+      </div>
+      <div class="apps" id="apps"></div>
+      <div class="list-num" id="listNum" aria-hidden="true">01</div>
+
+    </div>
+  </section>
+
+  <!-- shot 13 : frosted form slides in beside the shrinking panel -->
+  <aside class="form glass" id="form">
+    <div class="f-top">
+      <span class="f-tag">聊聊你的场景</span>
+      <span class="f-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+    <label class="f-q" for="fInput">你现在最耗人力的环节是什么？</label>
+    <div class="f-row">
+      <input id="fInput" type="text" autocomplete="off" spellcheck="false" placeholder="输入你的回答">
+      <span class="f-hint"><kbd>↵</kbd> 确认</span>
+    </div>
+    <div class="f-feedback" id="fFeedback" aria-hidden="true"><span></span></div>
+    <div class="f-step"><b id="fNum">01</b><i>/</i><span>03</span></div>
+  </aside>
+
+  <!-- shot 12 : wordmark grows in the exposed lower band -->
+  <div class="mark" id="mark" aria-hidden="true"><span>墨水瓶</span></div>
+  <div class="legal" id="legal">
+    <a href="#privacy">隐私政策</a><a href="#terms">服务条款</a>
+  </div>
+
+  <!-- shot 1 : centre tagline -->
+  <p class="intro-line" id="introLine">优化流程 · 降低成本 · 激发创造力</p>
+
+  <!-- shot 6 : queue controls -->
+  <div class="q-ui" id="qUi">
+    <div class="q-left">
+      <span class="q-label">精选案例</span>
+      <p class="q-desc">六个真实场景，同一套交互语汇。</p>
+    </div>
+    <div class="q-right">
+      <div class="q-index"><b id="qNum">01</b><i>/ 06</i></div>
+      <div class="q-pill glass-thin" id="qPill"><span id="qRoll">装配排产</span></div>
+    </div>
+  </div>
+
+  <!-- shots 0 - 7 : the card world -->
+  <div class="cards" id="cards" aria-hidden="true"></div>
+
+  <!-- shot 7 : the keyhole solid -->
+  <div class="solid" id="solid" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="mat" x1="0" y1="0" x2=".85" y2="1">
+          <stop id="m0" offset="0" stop-color="#ffffff"/>
+          <stop id="m1" offset=".45" stop-color="#f2f5f8"/>
+          <stop id="m2" offset="1" stop-color="#dfe6ee"/>
+        </linearGradient>
+        <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+          <stop offset=".34" stop-color="#ffffff" stop-opacity=".14"/>
+          <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#0b1a2e" stop-opacity=".2"/>
+        </linearGradient>
+        <linearGradient id="rimlight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+          <stop offset=".5" stop-color="#ffffff" stop-opacity=".12"/>
+          <stop offset="1" stop-color="#ffffff" stop-opacity=".55"/>
+        </linearGradient>
+        <mask id="kh">
+          <rect width="200" height="200" rx="34" fill="#fff"/>
+          <circle id="khCircle" cx="100" cy="80" r="0" fill="#000"/>
+          <rect id="khSlot" x="87" y="98" width="26" height="0" rx="13" fill="#000"/>
+        </mask>
+      </defs>
+      <g id="solidBody" mask="url(#kh)">
+        <rect id="b3" x="0" y="0" width="200" height="200" rx="34" fill="#16283f"/>
+        <rect id="b2" x="0" y="0" width="200" height="200" rx="34" fill="#22394f"/>
+        <rect id="b1" x="0" y="0" width="200" height="200" rx="34" fill="#33506f"/>
+        <rect x="0" y="0" width="200" height="200" rx="34" fill="url(#mat)"/>
+        <rect x="0" y="0" width="200" height="200" rx="34" fill="url(#sheen)"/>
+      </g>
+      <rect x=".5" y=".5" width="199" height="199" rx="33.5" fill="none" stroke="url(#rimlight)" stroke-width="1" opacity=".85"/>
+    </svg>
+  </div>
+
+  <!-- ============================== pinned ui ============================== -->
+  <nav class="chapters glass-thin" id="chapters" aria-label="章节导航">
+    <span class="nav-pill" id="navPill" aria-hidden="true"></span>
+    <button data-s="0" class="on">索引</button>
+    <button data-s="0.035">作品</button>
+    <button data-s="0.135">案例</button>
+    <button data-s="0.64">团队</button>
+    <button data-s="0.735">能力</button>
+    <button data-s="0.97">联系</button>
+  </nav>
+
+  <div class="progress" id="progress" aria-hidden="true"><i id="pbar"></i><b id="ptip"></b></div>
+
+  <p class="case-title" id="caseTitle" aria-live="polite"></p>
+
+  <div class="hint" id="hint"><span class="hint-line"><i></i></span>向下滚动</div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="c-halo"></span>
+    <span class="c-dot"></span>
+    <span class="c-cross"></span>
+    <span class="c-hand"></span>
+    <span class="c-label">拖拽</span>
+  </div>
+</div>
+
+<div class="grain" id="grain" aria-hidden="true"></div>
+
+<div class="spacer" id="spacer"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

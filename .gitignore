@@ -1,0 +1,9 @@
+# scratch: extracted video frames, chrome profiles, probe output
+.work/
+.tmp/
+
+# build + tooling noise
+node_modules/
+*.log
+Thumbs.db
+.DS_Store
